@@ -1,0 +1,85 @@
+* { box-sizing: border-box; }
+:root {
+  color-scheme: dark;
+  --pink: #f3a9c8;
+  --soft: #f8dce9;
+  --muted: #b8a9c8;
+  --bg: #100d20;
+}
+html { min-height: 100%; }
+body {
+  margin: 0; min-height: 100vh; overflow-x: hidden; color: #fff8fc;
+  background: radial-gradient(ellipse at 50% 18%, #382344 0%, #1d1830 38%, #100d20 78%);
+  font-family: "DM Sans", sans-serif;
+}
+.sky { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.stars, .stars-two {
+  position: absolute; inset: -50%;
+  background-image: radial-gradient(1px 1px at 20% 30%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 70% 20%, #f7cde0 99%, transparent),
+    radial-gradient(2px 2px at 40% 80%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 85% 65%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 12% 75%, #e9c6ff 99%, transparent);
+  background-size: 280px 260px; opacity: .65; animation: drift 100s linear infinite;
+}
+.stars-two { background-size: 390px 350px; opacity: .35; transform: rotate(17deg); animation-duration: 150s; }
+@keyframes drift { to { transform: translate3d(90px, 70px, 0) rotate(8deg); } }
+.moon {
+  position: absolute; width: 210px; height: 210px; border-radius: 50%; top: 7%; right: 11%;
+  background: radial-gradient(circle at 35% 35%, #fff5f8, #f4cde0 50%, #d99bbb 100%);
+  box-shadow: 0 0 45px #f4cde055, 0 0 130px #e5a8d033; opacity: .85;
+}
+.glow { position: absolute; border-radius: 50%; filter: blur(75px); opacity: .28; }
+.glow-one { width: 340px; height: 340px; background: #b64e8d; top: 38%; left: -170px; }
+.glow-two { width: 380px; height: 380px; background: #6554b5; right: -180px; bottom: -100px; }
+.page { position: relative; z-index: 1; width: min(920px, 100%); margin: auto; padding: 34px 24px 26px; text-align: center; }
+.topline { color: #d9b8d0; letter-spacing: .23em; font-size: .67rem; font-weight: 700; }
+.tiny-heart { color: var(--pink); padding: 0 10px; }
+.hero { padding: 78px 0 36px; }
+.eyebrow { color: var(--pink); text-transform: uppercase; letter-spacing: .22em; font-size: .7rem; font-weight: 700; }
+h1, h2 { font-family: "Playfair Display", Georgia, serif; font-size: clamp(3.5rem, 9vw, 6.6rem); line-height: .98; letter-spacing: -.045em; font-weight: 500; margin: 20px 0; text-shadow: 0 5px 40px #f2a9cf24; }
+h1 em, h2 em { color: var(--pink); font-weight: 500; }
+.intro { color: #d5c7d9; font-size: 1rem; margin: 22px 0 42px; }
+.countdown-wrap { width: min(680px, 100%); margin: 0 auto; }
+.countdown { display: flex; justify-content: center; align-items: center; gap: clamp(7px, 2.5vw, 22px); }
+.time-card { width: clamp(66px, 15vw, 125px); min-height: 112px; display: flex; flex-direction: column; justify-content: center; gap: 7px; border: 1px solid #f5c9df30; border-radius: 17px; background: linear-gradient(145deg, #ffffff12, #ffffff05); box-shadow: inset 0 1px #ffffff12, 0 15px 45px #08061240; backdrop-filter: blur(12px); }
+.time-card span { font-variant-numeric: tabular-nums; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1; font-weight: 500; letter-spacing: -.06em; }
+.time-card small { color: #c9b9ce; text-transform: uppercase; letter-spacing: .14em; font-size: .61rem; }
+.colon { color: #dba7c7; font-size: 2rem; transform: translateY(-8px); opacity: .75; }
+.target-label { color: #c9b5cc; letter-spacing: .18em; font-size: .62rem; margin-top: 25px; }
+.pulse-dot { display: inline-block; width: 6px; height: 6px; background: #f5a8c9; border-radius: 50%; margin: 0 8px 1px 0; box-shadow: 0 0 12px #f5a8c9; animation: pulse 1.7s infinite; }
+@keyframes pulse { 50% { opacity: .35; transform: scale(.7); } }
+.date-pill { display: inline-flex; align-items: center; gap: 18px; margin-top: 30px; padding: 13px 22px; border-radius: 50px; border: 1px solid #f4c5dc35; background: #ffffff0a; }
+.date-pill > span { color: var(--pink); }
+.date-pill div { display: grid; gap: 3px; text-align: left; }
+.date-pill strong { font-size: .82rem; font-weight: 600; }
+.date-pill small { color: #c6b4ca; font-size: .68rem; }
+.note-card { width: min(540px, 100%); margin: 42px auto 0; padding: 28px 28px 25px; border: 1px solid #f4c5dc2b; border-radius: 22px; background: linear-gradient(135deg, #ffffff10, #ffffff05); box-shadow: 0 18px 60px #07051045; backdrop-filter: blur(14px); }
+.note-icon { color: var(--pink); font-size: 1.5rem; }
+.note-kicker { color: #d8b8d0; font-size: .65rem; text-transform: uppercase; letter-spacing: .2em; margin: 9px 0 14px; }
+.note-text { font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.15rem, 3vw, 1.45rem); line-height: 1.55; color: #fff0f6; margin: 0 0 20px; }
+.letter-button { border: 0; border-bottom: 1px solid #f3a9c888; padding: 7px 2px; background: none; color: var(--pink); font: 600 .8rem "DM Sans", sans-serif; cursor: pointer; }
+.letter-button span { margin-left: 7px; }
+.letter { max-width: 410px; margin: 22px auto 0; padding-top: 18px; border-top: 1px solid #ffffff20; color: #e6d8e5; font-size: .88rem; line-height: 1.8; animation: reveal .5s ease both; }
+.letter p { margin: 0 0 12px; }
+.letter .signature { color: var(--pink); font-family: "Playfair Display", serif; font-style: italic; }
+@keyframes reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+footer { display: flex; justify-content: center; align-items: center; gap: 17px; color: #9687a5; font-size: .55rem; letter-spacing: .17em; margin-top: 48px; }
+footer b, .footer-star { color: var(--pink); }
+.celebration { position: fixed; inset: 0; z-index: 5; display: grid; place-items: center; padding: 24px; background: #100d20ed; text-align: center; }
+.celebration[hidden] { display: none; }
+.celebration-box { animation: reveal .8s ease both; }
+.celebration h2 { font-size: clamp(3.5rem, 12vw, 6rem); }
+.celebration-box > p:last-child { color: #e6d8e5; }
+.big-heart { color: var(--pink); font-size: 3rem; animation: heartbeat 1s infinite; }
+@keyframes heartbeat { 50% { transform: scale(1.2); } }
+@media (max-width: 520px) {
+  .page { padding: 25px 16px 22px; }
+  .hero { padding-top: 76px; }
+  .moon { width: 125px; height: 125px; top: 8%; right: 5%; opacity: .55; }
+  .time-card { min-height: 88px; border-radius: 12px; }
+  .colon { font-size: 1.35rem; }
+  .date-pill { gap: 11px; padding: 12px 15px; }
+  footer { flex-wrap: wrap; gap: 9px; line-height: 1.6; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
