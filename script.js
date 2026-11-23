@@ -1,12 +1,12 @@
 // 1:00 AM on 29 December 2026, India Standard Time (UTC+05:30).
 // The explicit offset makes the target identical for visitors anywhere in the world.
-const target = new Date("2026-12-29T01:00:00+05:30").getTime();
+const target = new Date("2026-12-29T02:00:00+05:30").getTime();
 
 const fields = {
   days: document.getElementById("days"),
   hours: document.getElementById("hours"),
   minutes: document.getElementById("minutes"),
-  seconds: document.getElementById("seconds")
+  seconds: document.getElementById("seconds"),
 };
 
 const countdown = document.getElementById("countdown");
@@ -16,7 +16,7 @@ function updateCountdown() {
   const remaining = target - Date.now();
 
   if (remaining <= 0) {
-    Object.values(fields).forEach((field) => field.textContent = "00");
+    Object.values(fields).forEach((field) => (field.textContent = "00"));
     countdown.setAttribute("aria-label", "The reunion moment has arrived");
     celebration.hidden = false;
     clearInterval(timer);
@@ -45,6 +45,6 @@ letterButton.addEventListener("click", () => {
   letter.hidden = !opening;
   letterButton.setAttribute("aria-expanded", String(opening));
   letterButton.innerHTML = opening
-    ? 'Close love note <span>↗</span>'
-    : 'Open a little love note <span>↗</span>';
+    ? "Close love note <span>↗</span>"
+    : "Open a little love note <span>↗</span>";
 });
